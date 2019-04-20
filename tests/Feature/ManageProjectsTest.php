@@ -113,10 +113,22 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function an_authenticated_user_cannot_update_the_projects_of_others()
     {
-        //$this->withoutExceptionHandling();
         $this->signIn();
         $project = factory('App\Project')->create();
         $this->patch($project->path(),[])->assertStatus(403);
+    }
+
+    /** @test */
+    public function a_user_can_update_a_project_general_notes()
+    {
+
+        $project = ProjectFactory::create();
+
+        $this->actingAs($project->owner)
+            ->patch($project->path(), 
+                $attributes= ['notes' => 'Changed']);
+            
+        $this->assertDatabaseHas('projects', $attributes);
 
     }
 }
