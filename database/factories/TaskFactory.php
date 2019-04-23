@@ -12,3 +12,4 @@ $factory->define(App\Task::class, function (Faker $faker) {
         'project_id' => factory(App\Project::class)
     ];
 });
+

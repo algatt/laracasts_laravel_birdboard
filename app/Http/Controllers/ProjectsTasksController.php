@@ -10,7 +10,6 @@ class ProjectsTasksController extends Controller
 {
     public function store(Project $project)
     {
-
         $this->authorize('update',$project);
     	
     	request()->validate(['body'=>'required']);
