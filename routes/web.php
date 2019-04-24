@@ -21,7 +21,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::resource('projects','ProjectsController');
 
 	Route::post('/projects/{project}/tasks', 'ProjectsTasksController@store');
-	Route::patch('/projects/{project}/tasks/{task}', 'ProjectsTasksController@update');
+	Route::patch('/projects/{project}/tasks/{task}', 'ProjectsTasksController@update');	
+	Route::post('/projects/{project}/invitations', 'ProjectsInvitationsController@store');
 	
 	Route::get('/home', 'HomeController@index')->name('home');
 });
