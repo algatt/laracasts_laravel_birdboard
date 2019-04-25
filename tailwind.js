@@ -51,7 +51,7 @@ let colors = {
   'grey-darker': '#606f7b',
   'grey-dark': '#8795a1',
   'grey': 'rgba(0,0,0,0.4)',
-  'grey-light': '#f5f6f9',
+  'grey-light': '#e1e6e8',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#f8fafc',
   'white': '#ffffff',
@@ -347,7 +347,10 @@ module.exports = {
   |
   */
 
-  textColors: colors,
+  //textColors: colors,
+  textColors: {
+    default: 'var(--text-default-color)'
+  },
 
 
   /*
@@ -364,8 +367,13 @@ module.exports = {
   |
   */
 
-  backgroundColors: colors,
-
+  // backgroundColors: colors,
+  backgroundColors: {
+    page : 'var(--page-background-color)',
+    card: 'var(--card-background-color)',
+    button: 'var(--button-background-color)',
+    header: 'var(--header-background-color)'
+  },
 
   /*
   |-----------------------------------------------------------------------------
