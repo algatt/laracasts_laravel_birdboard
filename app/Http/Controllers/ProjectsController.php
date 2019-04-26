@@ -20,6 +20,9 @@ class ProjectsController extends Controller
     public function show(Project $project)
     {
         $this->authorize('update',$project);
+        if (request()->wantsJson()){
+            return ['message' => $poject->path()];
+        }
     	return view('projects.show', compact('project'));	
     }
 
