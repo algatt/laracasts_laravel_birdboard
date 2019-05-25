@@ -54,23 +54,19 @@
                             @else           
 
                                 <theme-switcher></theme-switcher>     
-
-                                <a class="flex items-center text-default no-underline text-sm"
-                                    href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img width="35" class="rounded-full mr-3" src="{{gravatar_url(auth()->user()->email)}}">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <a class="flex items-center text-default no-underline text-sm ml-4" 
-                                    href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                                              
+                                <dropdown align='right' width='200px'>
+                                    <template v-slot:trigger>
+                                        <button class="flex items-center text-default no-underline text-sm">
+                                            <img width="35" class="rounded-full mr-3" src="{{gravatar_url(auth()->user()->email)}}">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </button>
+                                    </template>
+                                       <form id="logout-form" method="POST" action="/logout">
+                                        @csrf
+                                        <button type="submit" class="dropdown-menu-link w-full text-left">Logout</button>
+                                    </form>
+                                </dropdown>
+                                
                             @endguest
                         </ul>
                     </div>
